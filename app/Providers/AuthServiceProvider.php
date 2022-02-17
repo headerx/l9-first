@@ -32,7 +32,7 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
-        foreach(UserRoles::cases() as $role) {
+        foreach (UserRoles::cases() as $role) {
             Gate::define($role->value, function ($user) use ($role) {
                 return $user->hasRole($role->value);
             });

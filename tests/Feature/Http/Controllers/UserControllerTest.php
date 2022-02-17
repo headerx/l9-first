@@ -13,7 +13,9 @@ use Tests\TestCase;
  */
 class UserControllerTest extends TestCase
 {
-    use AdditionalAssertions, RefreshDatabase, WithFaker;
+    use AdditionalAssertions;
+    use RefreshDatabase;
+    use WithFaker;
 
     /**
      * @test
@@ -56,7 +58,6 @@ class UserControllerTest extends TestCase
         $response->assertSessionHas('user.name', $user->name . ' added');
     }
 
-
     /**
      * @test
      */
@@ -67,7 +68,6 @@ class UserControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('user.create');
     }
-
 
     /**
      * @test
@@ -82,7 +82,6 @@ class UserControllerTest extends TestCase
         $response->assertViewIs('user.edit');
         $response->assertViewHas('user');
     }
-
 
     /**
      * @test
