@@ -20,3 +20,9 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+Route::resource('user', App\Http\Controllers\UserController::class)->only('index', 'store');
+
+
+Route::resource('user', App\Http\Controllers\UserController::class)->except('update', 'show');

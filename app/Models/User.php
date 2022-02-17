@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\UserRoles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -47,6 +48,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'roles' => UserRoles::class,
     ];
 
     /**
@@ -57,4 +59,20 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * Checks if the user is a super admin.
+     */
+    public function isSuperAdmin(): bool
+    {
+        return $this->roles->contains(UserRoles::SuperAdmin);
+    }
+
+    /**
+     * Checks if the user has the given role.
+     */
+    public function hasRole(string $role): bool
+    {
+        return $this->role == $role;
+    }
 }
