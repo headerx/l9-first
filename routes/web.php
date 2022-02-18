@@ -23,3 +23,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::resource('user', App\Http\Controllers\UserController::class)->except('show');
+
+Route::get('/users/{user?}', \App\Http\Livewire\Forms\CreateUser::class);

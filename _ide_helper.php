@@ -16151,6 +16151,13 @@
             /**
      * 
      *
+     */ 
+        class Js {
+         
+    }
+            /**
+     * 
+     *
      * @template TKey of array-key
      * @template TValue
      * @implements \ArrayAccess<TKey, TValue>
@@ -17951,6 +17958,123 @@
                         /** @var \Spatie\FlareClient\Flare $instance */
                         return $instance->group($groupName, $properties);
         }
+         
+    }
+     
+}
+
+    namespace Tanthammar\TallForms { 
+            /**
+     * 
+     *
+     */ 
+        class Checkbox {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Checkboxes {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class FileUpload {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class ImageCropper {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Input {
+         
+    }
+            /**
+     * The Model attribute must be $cast to array
+     *
+     * @package Tanthammar\TallForms
+     */ 
+        class InputArray {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class MultiSelect {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Radio {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Range {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Search {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Select {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class SpatieTags {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Textarea {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Trix {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Tags {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class TagsSearch {
          
     }
      
@@ -21802,6 +21926,23 @@ namespace  {
             class Agent extends \Jenssegers\Agent\Facades\Agent {}
             class Livewire extends \Livewire\Livewire {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
+            class Checkbox extends \Tanthammar\TallForms\Checkbox {}
+            class Checkboxes extends \Tanthammar\TallForms\Checkboxes {}
+            class FileUpload extends \Tanthammar\TallForms\FileUpload {}
+            class ImageCropper extends \Tanthammar\TallForms\ImageCropper {}
+            class Input extends \Tanthammar\TallForms\Input {}
+            class InputArray extends \Tanthammar\TallForms\InputArray {}
+            class MultiSelect extends \Tanthammar\TallForms\MultiSelect {}
+            class Radio extends \Tanthammar\TallForms\Radio {}
+            class Range extends \Tanthammar\TallForms\Range {}
+            class Search extends \Tanthammar\TallForms\Search {}
+            class Select extends \Tanthammar\TallForms\Select {}
+            class SpatieTags extends \Tanthammar\TallForms\SpatieTags {}
+            class Textarea extends \Tanthammar\TallForms\Textarea {}
+            class Trix extends \Tanthammar\TallForms\Trix {}
+            class Tags extends \Tanthammar\TallForms\Tags {}
+            class TagsSearch extends \Tanthammar\TallForms\TagsSearch {}
+            class tfjs extends \Illuminate\Support\Js {}
      
 }
 
