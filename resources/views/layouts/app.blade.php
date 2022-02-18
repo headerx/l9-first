@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         @livewireStyles
+        @stack("styles")
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
@@ -28,7 +29,7 @@
             @if (isset($header))
                 <header class="bg-white shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+                        {{ $header ?? null }}
                     </div>
                 </header>
             @endif
@@ -42,5 +43,6 @@
         @stack('modals')
 
         @livewireScripts
+        @stack("scripts")
     </body>
 </html>

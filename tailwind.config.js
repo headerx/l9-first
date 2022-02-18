@@ -2,10 +2,18 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './app/**/*.php',
+        //if Jetstream
         './vendor/laravel/jetstream/**/*.blade.php',
+        //if Jetstream and Breeze
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
+        // Tall-forms
+        './config/tall-forms.php',
+        './vendor/tanthammar/tall-forms/**/*.php',
+        './vendor/tanthammar/tall-forms-sponsors/**/*.php',
+        // File formats applicable to most projects
+        './resources/**/*.{html,js,jsx,ts,tsx,php,vue,twig}',
     ],
 
     theme: {
@@ -13,8 +21,15 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+              current: 'currentColor',
+            },
         },
     },
 
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    plugins: [
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/aspect-ratio'),
+    ],
 };
