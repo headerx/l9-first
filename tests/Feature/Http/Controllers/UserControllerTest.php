@@ -4,8 +4,6 @@ namespace Tests\Feature\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use JMac\Testing\Traits\AdditionalAssertions;
 use Tests\TestCase;
 
 /**
@@ -13,9 +11,7 @@ use Tests\TestCase;
  */
 class UserControllerTest extends TestCase
 {
-    use AdditionalAssertions;
     use RefreshDatabase;
-    use WithFaker;
 
     /**
      * @test
@@ -30,6 +26,7 @@ class UserControllerTest extends TestCase
         $response->assertViewIs('user.index');
         $response->assertViewHas('users');
     }
+
 
     /**
      * @test
@@ -58,6 +55,7 @@ class UserControllerTest extends TestCase
         $response->assertSessionHas('user.name', $user->name . ' added');
     }
 
+
     /**
      * @test
      */
@@ -68,6 +66,7 @@ class UserControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('user.create');
     }
+
 
     /**
      * @test
@@ -83,17 +82,35 @@ class UserControllerTest extends TestCase
         $response->assertViewHas('user');
     }
 
+
     /**
      * @test
      */
-    public function destroy_displays_view()
+    public function destroy_deletes_and_redirects()
     {
         $user = User::factory()->create();
 
         $response = $this->delete(route('user.destroy', $user));
 
-        $response->assertOk();
-        $response->assertViewIs('user.delete');
-        $response->assertViewHas('user');
+        $response->assertRedirect(route('user.index'));
+
+        $this->assertDatabaseMissing('users', ['id' => $user->id]);
+    }
+
+
+    /**
+     * @test
+     */
+    public function update_saves_and_redirects()
+    {
+        $user = User::factory()->create();
+
+        $response = $this->put(route('user.update', $user), [
+            'name' => 'Guioui',
+        ]);
+
+        $response->assertRedirect(route('user.index'));
+
+        $this->assertDatabaseHas('users', [ 'name' => 'Guioui' ]);
     }
 }

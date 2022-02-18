@@ -22,7 +22,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::resource('user', App\Http\Controllers\UserController::class)->only('index', 'store');
-
-
-Route::resource('user', App\Http\Controllers\UserController::class)->except('update', 'show');
+Route::resource('user', App\Http\Controllers\UserController::class)->except('show');
