@@ -40,7 +40,6 @@ class UserForm extends TallFormComponent
             $validated_data['password'] !== ' ' &&
             $validated_data['password'] !== $this->model->password
         ) {
-    
             (new ResetUserPassword)->reset($this->model, ['password' => $validated_data['password'], 'password_confirmation' => $validated_data['password']]);
         }
 

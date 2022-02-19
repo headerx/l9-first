@@ -37,6 +37,12 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
+
+            if (app()->environment(['local', 'staging']) || config('app.debug') === true) {
+                Route::middleware('web')
+                    ->prefix('dev')
+                    ->group(base_path('routes/dev.php'));
+            }
         });
     }
 
