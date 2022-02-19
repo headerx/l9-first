@@ -8,14 +8,12 @@ use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class UserController extends Controller
 {
-
     public function index(Request $request)
     {
         $users = User::all();
 
         return view('user.index', compact('users'));
     }
-
 
     public function store(Request $request, CreatesNewUsers $createsNewUsers)
     {
@@ -30,7 +28,6 @@ class UserController extends Controller
 
         return redirect()->route('user.index');
     }
-
 
     public function create(Request $request)
     {

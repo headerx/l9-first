@@ -27,7 +27,6 @@ class UserControllerTest extends TestCase
         $response->assertViewHas('users');
     }
 
-
     /**
      * @test
      */
@@ -55,7 +54,6 @@ class UserControllerTest extends TestCase
         $response->assertSessionHas('user.name', $user->name . ' added');
     }
 
-
     /**
      * @test
      */
@@ -66,7 +64,6 @@ class UserControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('user.create');
     }
-
 
     /**
      * @test
@@ -82,7 +79,6 @@ class UserControllerTest extends TestCase
         $response->assertViewHas('user');
     }
 
-
     /**
      * @test
      */
@@ -96,7 +92,6 @@ class UserControllerTest extends TestCase
 
         $this->assertDatabaseMissing('users', ['id' => $user->id]);
     }
-
 
     /**
      * @test
