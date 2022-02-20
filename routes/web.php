@@ -27,3 +27,9 @@ Route::resource('user', App\Http\Controllers\UserController::class)->except('sho
 Route::group(['prefix' => 'user-forms', 'as' => 'user-forms.'], function () {
     Route::get('/edit/{user?}', \App\Http\Livewire\Forms\UserForm::class)->name('edit');
 });
+
+
+Route::resource('role', App\Http\Controllers\RoleController::class)->except('show');
+
+Route::resource('permission', App\Http\Controllers\PermissionController::class)->except('show');
+

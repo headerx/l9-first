@@ -14,5 +14,6 @@ yarn-error.log
 /.idea
 /.vscode
 /draft.yaml
+/draft.yaml*
 /.blueprint
 .php-cs-fixer.cache

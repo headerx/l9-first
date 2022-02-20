@@ -33,8 +33,8 @@ class UserControllerTest extends TestCase
     public function store_saves_and_redirects()
     {
         $email = $this->faker->safeEmail;
-        $password = 'guiouiugioigoigoigoig';
-        $name = 'Guioui';
+        $password = $this->faker->password;
+        $name = $this->faker->name;
 
         $this->withoutExceptionHandling();
 
@@ -100,12 +100,14 @@ class UserControllerTest extends TestCase
     {
         $user = User::factory()->create();
 
+        $name = $this->faker->name;
+
         $response = $this->put(route('user.update', $user), [
-            'name' => 'Guioui',
+            'name' => $name,
         ]);
 
         $response->assertRedirect(route('user.index'));
 
-        $this->assertDatabaseHas('users', [ 'name' => 'Guioui' ]);
+        $this->assertDatabaseHas('users', [ 'name' => $name ]);
     }
 }
